@@ -3,7 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # rutas de apps
-    path('clientes/', include('apps.clientes.urls')),
+    path('', include('app.urls')),  # conecta con la app
 ]
