@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Arriendos</title>
+
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistema de Gestion de Arriendos</h1>
+    </header>
+
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/clientes/">Clientes</a>
+        <a href="/inmuebles/">Inmuebles</a>
+        <a href="/arriendos/">Arriendos</a>
+    </nav>
+
+    <div class="container">
+
+        {% block contenido %}
+        {% endblock %}
+
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
