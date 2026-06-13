@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="card">
+
+    <h2>Registrar cliente</h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn" type="submit">
+            Guardar
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
