@@ -44,33 +44,21 @@ def lista_inmuebles(request):
     })
 
 
-def formulario_inmueble(request):
-    if request.method == 'POST':
-        Inmueble.objects.create(
-            tipo=request.POST.get('tipo'),
-            direccion=request.POST.get('direccion'),
-            ciudad=request.POST.get('ciudad'),
-            precio=request.POST.get('precio'),
-            habitaciones=request.POST.get('habitaciones'),
-            banos=request.POST.get('banos'),
-            area=request.POST.get('area'),
-            parqueadero=request.POST.get('parqueadero') == 'True'
-        )
-        return redirect('lista_inmuebles')
-
-    return render(request, 'inmuebles/formulario_inmueble.html')
-
-
+# UNA SOLA FUNCIÓN DE CREACIÓN: Limpia, segura y unificada
 def crear_inmueble(request):
     if request.method == 'POST':
         form = InmuebleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('lista_inmuebles')
+        else:
+            print("Errores del formulario:", form.errors)
     else:
         form = InmuebleForm()
 
-    return render(request, 'inmuebles/form.html', {'form': form})
+    # CORREGIDO: Apunta exactamente al archivo HTML de tu tarjeta blanca
+    return render(request, 'inmuebles/formulario_inmueble.html', {'form': form})
+
 
 
 # =========================

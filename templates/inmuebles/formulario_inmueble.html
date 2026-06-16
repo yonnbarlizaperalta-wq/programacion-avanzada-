@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 
-<h2>Registrar Inmueble</h2>
+{% block contenido %}
+<div class="form-container" style="max-width: 550px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    
+    <h2 style="margin-bottom: 20px; color: #333;">Crear Nuevo Inmueble</h2>
 
-<form method="POST">
- <h1>Crear Inmueble</h1>
+    <!-- Un solo formulario con la codificación requerida para archivos e imágenes -->
+    <form method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 15px;">
+        {% csrf_token %}
+        
+        <!-- Aquí Django auto-generará las etiquetas, inputs de texto y selectores -->
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+            {{ form.as_p }}
+        </div>
 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
-</form>
+        <!-- Botones de control básico -->
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">
+            <a href="/inmuebles/" style="padding: 8px 15px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 4px;">Cancelar</a>
+            <button type="submit" style="padding: 8px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Guardar</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -5,7 +5,9 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <h2>Listado de Inmuebles</h2>
         <!-- Enlace para ir al formulario de registro -->
-        <a href="/inmuebles/nuevo/" class="btn-primary" style="padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">+ Nuevo Inmueble</a>
+        <!-- Busca la etiqueta del botón y déjala así: -->
+<a href="/inmuebles/nuevo/" class="btn-primary" style="padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">+ Nuevo Inmueble</a>
+
     </div>
 
     <table border="1" style="width: 100%; border-collapse: collapse; text-align: left; margin-top: 10px;">
@@ -21,24 +23,23 @@
             </tr>
         </thead>
         <tbody>
-            {% for inmueble in inmuebles %}
-<tr>
-    <td style="padding: 10px;">{{ inmueble.tipo }}</td>
+           {% for inmueble in inmuebles %}
+    <!-- ... código anterior de las celdas ... -->
     <td style="padding: 10px;">{{ inmueble.ciudad }}</td>
-    <!-- Quitamos la línea de dirección para que no rompa el sistema -->
+    <td style="padding: 10px;">{{ inmueble.direccion }}</td>
     <td style="padding: 10px;">${{ inmueble.precio }}</td>
     <td style="padding: 10px;">{{ inmueble.habitaciones }}</td>
     <td style="padding: 10px;">{{ inmueble.banos }}</td>
     <td style="padding: 10px;">{{ inmueble.area }}</td>
 </tr>
+{% empty %}
+<tr>
+    <td colspan="7" style="padding: 20px; text-align: center; color: #666;">
+        No hay inmuebles registrados en el sistema todavía. ¡Haz clic en "+ Nuevo Inmueble" para agregar el primero!
+    </td>
+</tr>
+{% endfor %} <!-- UN SOLO ENDFOR AL FINAL DE TODO -->
 
-            {% empty %}
-            <tr>
-                <td colspan="7" style="padding: 20px; text-align: center; color: #666;">
-                    No hay inmuebles registrados en el sistema todavía. ¡Haz clic en "+ Nuevo Inmueble" para agregar el primero!
-                </td>
-            </tr>
-            {% endfor %}
         </tbody>
     </table>
 </div>

@@ -12,12 +12,18 @@ class Cliente(models.Model):
 from django.db import models
 
 class Inmueble(models.Model):
-    nombre = models.CharField(max_length=100)
-    precio = models.IntegerField()
-    imagen = models.ImageField(upload_to='inmuebles/')
+    tipo = models.CharField(max_length=50, default='Apartamento')
+    ciudad = models.CharField(max_length=50, default='Ciudad')
+    direccion = models.CharField(max_length=100, default='Dirección')
+    precio = models.DecimalField(max_length=15, max_digits=12, decimal_places=2, default=0.0)
+    habitaciones = models.IntegerField(default=1)
+    banos = models.IntegerField(default=1)
+    area = models.FloatField(default=0.0)
+    imagen = models.ImageField(upload_to='inmuebles/', null=True, blank=True)
 
     def __str__(self):
-        return self.nombre
+        return f"{self.tipo} - {self.ciudad}"
+
 
 # 📄 ARRIENDO
 class Arriendo(models.Model):
