@@ -1,35 +1,38 @@
 {% load static %}
 
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Arriendos</title>
-
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <!-- Carga correcta de estilos estáticos -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <body>
 
     <header>
-        <h1>Sistema de Gestion de Arriendos</h1>
+        <h1>Sistema de Gestión de Arriendos</h1>
     </header>
 
     <nav>
         <a href="/">Inicio</a>
         <a href="/clientes/">Clientes</a>
+        <!-- Corregido: Apunta exactamente a la ruta /inmuebles/ configurada en urls.py -->
         <a href="/inmuebles/">Inmuebles</a>
+        <!-- Corregido: Ruta directa para evitar fallos de compilación -->
         <a href="/arriendos/">Arriendos</a>
     </nav>
 
     <div class="container">
-
         {% block contenido %}
         {% endblock %}
-
     </div>
 
+    <!-- Carga correcta de scripts estáticos -->
     <script src="{% static 'js/main.js' %}"></script>
-
+    
 </body>
 </html>

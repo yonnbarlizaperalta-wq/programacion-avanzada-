@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="card">
+
+    <h2>Bienvenido al Sistema de Gestión de Arriendos</h2>
+
+    <p>
+        Este sistema te permite administrar clientes, inmuebles y arriendos
+        de forma sencilla y organizada.
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>Accesos rápidos</h3>
+
+   <div class="acciones">
+
+    <a href="/clientes/" class="btn">👥 Ver Clientes</a>
+
+    <a href="/clientes/nuevo/" class="btn">➕ Nuevo Cliente</a>
+
+    <a href="/inmuebles/" class="btn">🏠 Inmuebles</a>
+
+    <a href="/arriendos/" class="btn">📄 Arriendos</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+    <h3>Resumen del sistema</h3>
+
+    <p>Aquí puedes gestionar toda la información relacionada con:</p>
+
+    <ul>
+        <li>Clientes</li>
+        <li>Inmuebles</li>
+        <li>Contratos de arriendo</li>
+    </ul>
+
+</div>
+
+{% endblock %}

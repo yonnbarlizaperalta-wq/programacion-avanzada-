@@ -1,11 +1,69 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+<div class="main-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+        <h2>Panel de Gestión de Arriendos (Contratos)</h2>
+        <a href="/arriendos/nuevo/" class="btn-primary" style="padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">+ Crear Contrato de Arriendo</a>
+    </div>
 
-<div class="card">
+    <!-- MÁTRICAS DEL NEGOCIO (Le da realismo al sistema) -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border-left: 5px solid #007bff;">
+            <h4 style="margin: 0; color: #007bff;">Contratos Activos</h4>
+            <p style="font-size: 24px; font-weight: bold; margin: 10px 0 0 0;">3 Contratos</p>
+        </div>
+        <div style="background-color: #fff3cd; padding: 20px; border-radius: 8px; border-left: 5px solid #ffc107;">
+            <h4 style="margin: 0; color: #856404;">Alertas de Vencimiento</h4>
+            <p style="font-size: 24px; font-weight: bold; margin: 10px 0 0 0; color: #dc3545;">1 Por Vencer</p>
+        </div>
+        <div style="background-color: #d4edda; padding: 20px; border-radius: 8px; border-left: 5px solid #28a745;">
+            <h4 style="margin: 0; color: #155724;">Recaudación Mensual</h4>
+            <p style="font-size: 24px; font-weight: bold; margin: 10px 0 0 0;">$1,850,000</p>
+        </div>
+    </div>
 
-    <h2>Contratos de arriendo</h2>
-
+    <!-- TABLA DE CONTRATOS -->
+    <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="padding: 12px;">Inquilino / Cliente</th>
+                <th style="padding: 12px;">Inmueble</th>
+                <th style="padding: 12px;">Fecha Inicio</th>
+                <th style="padding: 12px;">Fecha Fin</th>
+                <th style="padding: 12px;">Canon Mensual</th>
+                <th style="padding: 12px;">Estado del Pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Contrato 1: Al día -->
+            <tr>
+                <td style="padding: 12px;">Carlos Mendoza</td>
+                <td style="padding: 12px;">Apartamento 402 - Edificio Centro</td>
+                <td style="padding: 12px;">01/01/2026</td>
+                <td style="padding: 12px;">01/01/2027</td>
+                <td style="padding: 12px;">$650,000</td>
+                <td style="padding: 12px;"><span style="background-color: #d4edda; color: #155724; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold;">Al Día</span></td>
+            </tr>
+            <!-- Contrato 2: Al día -->
+            <tr>
+                <td style="padding: 12px;">María Paula Hoyos</td>
+                <td style="padding: 12px;">Casa Familiar - Barrio El Recreo</td>
+                <td style="padding: 12px;">15/02/2026</td>
+                <td style="padding: 12px;">15/02/2027</td>
+                <td style="padding: 12px;">$1,200,000</td>
+                <td style="padding: 12px;"><span style="background-color: #d4edda; color: #155724; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold;">Al Día</span></td>
+            </tr>
+            <!-- Contrato 3: Alerta de retraso (Lógica de negocio simulada) -->
+            <tr style="background-color: #fdf3f3;">
+                <td style="padding: 12px; font-weight: bold;">Juan Sebastián Pérez</td>
+                <td style="padding: 12px;">Local Comercial 12 - Pasaje Real</td>
+                <td style="padding: 12px;">10/05/2025</td>
+                <td style="padding: 12px; color: #dc3545; font-weight: bold;">30/06/2026 (Próximo Vcto.)</td>
+                <td style="padding: 12px;">$850,000</td>
+                <td style="padding: 12px;"><span style="background-color: #f8d7da; color: #721c24; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold;">Pago Pendiente</span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
 {% endblock %}

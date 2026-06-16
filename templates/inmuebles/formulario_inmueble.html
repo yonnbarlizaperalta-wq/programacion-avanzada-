@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
 
-{% block contenido %}
+<h2>Registrar Inmueble</h2>
 
-<div class="card">
+<form method="POST">
+ <h1>Crear Inmueble</h1>
 
-    <h2>Registrar inmueble</h2>
-
-    <form method="post">
-
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button class="btn" type="submit">
-            Guardar
-        </button>
-
-    </form>
-
-</div>
-
-{% endblock %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+</form>
